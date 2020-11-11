@@ -51,10 +51,10 @@ open http://localhost:3000 in your browser
 
 ## Authors
 
-👤 **Alexandre Bouhid**
+👤 **Karthick harimoorthy**
 
-- Github: [@abouhid](https://github.com/abouhid)
-- LinkedIn: [Alexandre Bouhid](https://www.linkedin.com/in/alexandrebouhid/)
+- Github: [@karthykarthick](https://github.com/karthykarthick)
+- LinkedIn: [karthick harimoorthy](https://www.linkedin.com/in/karthick_harimoorthy/)
 
 
 ## 🤝 Contributing
