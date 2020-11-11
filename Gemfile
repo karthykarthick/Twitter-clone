@@ -1,12 +1,19 @@
-# frozen_string_literal: true
-
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
+gem 'better_errors', '~> 2.8'
+gem 'bulma-rails', '~> 0.9.0'
+gem 'guard', '~> 2.16', '>= 2.16.2'
+gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
+gem 'simple_form', '~> 5.0', '>= 5.0.2'
+
+gem 'devise', '~> 4.7', '>= 4.7.2'
+gem 'gravatar_image_tag', '~> 1.2'
+gem 'rubocop', require: false
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
+gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
@@ -40,17 +47,9 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'better_errors', '~> 2.8', '>= 2.8.3'
-  gem 'guard', '~> 2.16', '>= 2.16.2'
-  gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
-gem 'bulma-rails', '~> 0.9.0'
-gem 'devise', '~> 4.7', '>= 4.7.3'
-gem 'gravatar_image_tag', '~> 1.2'
-gem 'simple_form', '~> 5.0', '>= 5.0.3'
 
 group :test do
   # Adds support for Capybara system testing and selenium driver

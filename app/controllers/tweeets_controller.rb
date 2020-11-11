@@ -1,12 +1,12 @@
-# frozen_string_literal: true
-
 class TweeetsController < ApplicationController
   before_action :set_tweeet, only: %i[show edit update destroy]
+  before_action :authenticate_user!, except: %i[index show]
 
   # GET /tweeets
   # GET /tweeets.json
   def index
     @tweeets = Tweeet.all.order('created_at DESC')
+    @tweeet = Tweeet.new
   end
 
   # GET /tweeets/1
@@ -15,7 +15,7 @@ class TweeetsController < ApplicationController
 
   # GET /tweeets/new
   def new
-    @tweeet = Tweeet.new
+    @tweeet = current_user.tweeets.build
   end
 
   # GET /tweeets/1/edit
@@ -24,11 +24,11 @@ class TweeetsController < ApplicationController
   # POST /tweeets
   # POST /tweeets.json
   def create
-    @tweeet = Tweeet.new(tweeet_params)
+    @tweeet = current_user.tweeets.build(tweeet_params)
 
     respond_to do |format|
       if @tweeet.save
-        format.html { redirect_to @tweeet, notice: 'Tweeet was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Tweeet was successfully created.' }
         format.json { render :show, status: :created, location: @tweeet }
       else
         format.html { render :new }
@@ -68,8 +68,8 @@ class TweeetsController < ApplicationController
     @tweeet = Tweeet.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
+  # Never trust parameters from the scary internet, only allow the white list through.
   def tweeet_params
-    params.require(:tweeet).permit(:tweet)
+    params.require(:tweeet).permit(:tweeet)
   end
 end

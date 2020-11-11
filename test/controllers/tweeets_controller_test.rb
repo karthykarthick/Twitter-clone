@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'test_helper'
 
 class TweeetsControllerTest < ActionDispatch::IntegrationTest
@@ -19,7 +17,7 @@ class TweeetsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create tweeet' do
     assert_difference('Tweeet.count') do
-      post tweeets_url, params: { tweeet: { tweet: @tweeet.tweet } }
+      post tweeets_url, params: { tweeet: { tweeet: @tweeet.tweeet } }
     end
 
     assert_redirected_to tweeet_url(Tweeet.last)
@@ -36,7 +34,7 @@ class TweeetsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update tweeet' do
-    patch tweeet_url(@tweeet), params: { tweeet: { tweet: @tweeet.tweet } }
+    patch tweeet_url(@tweeet), params: { tweeet: { tweeet: @tweeet.tweeet } }
     assert_redirected_to tweeet_url(@tweeet)
   end
 
